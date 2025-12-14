@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""
+CLI Interativa para envio de fichas PPPoker
+"""
+
+import sys
+import os
+import subprocess
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def main():
+    print("\n" + "=" * 40)
+    print("   PPPOKER - ENVIO DE FICHAS")
+    print("=" * 40 + "\n")
+
+    try:
+        target = input("ID do jogador: ").strip()
+        if not target:
+            print("Cancelado.")
+            sys.exit(0)
+
+        amount = input("Quantidade de fichas: ").strip()
+        if not amount:
+            print("Cancelado.")
+            sys.exit(0)
+
+        print(f"\n>>> Enviando {amount} fichas para {target}...\n")
+
+        # Executa o script diretamente via subprocess
+        result = subprocess.run(
+            ['python3', os.path.join(SCRIPT_DIR, 'realtime_transfer.py'),
+             '--target', target, '--amount', amount],
+            cwd=SCRIPT_DIR
+        )
+
+        if result.returncode == 0:
+            print("\n" + "=" * 40)
+            print(f"   ENVIADO: {amount} fichas -> {target}")
+            print("=" * 40 + "\n")
+        else:
+            print("\n[ERRO] Falha no envio\n")
+            sys.exit(1)
+
+    except KeyboardInterrupt:
+        print("\n\nCancelado.")
+        sys.exit(0)
+    except Exception as e:
+        print(f"\n[ERRO] {e}\n")
+        sys.exit(1)
+
+if __name__ == '__main__':
+    main()
