@@ -22,7 +22,7 @@ from pppoker_direct_api import PPPokerClient
 UID = 13204081
 CLUBE_ID = 3330646
 LIGA_ID = 1765
-SUDO_PASS = '0000'
+SUDO_PASS = ''  # <- CONFIGURE SUA SENHA SUDO AQUI
 PCAP_FILE = '/tmp/pppoker_transfer.pcap'
 
 # Hashes para ignorar (ícones, etc)

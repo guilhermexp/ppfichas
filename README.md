@@ -17,7 +17,7 @@ ppfichas
 **IMPORTANTE:** Edite a senha sudo no arquivo `realtime_transfer.py`:
 
 ```python
-SUDO_PASS = '0000'  # <- Troque pela sua senha
+SUDO_PASS = 'SUA_SENHA_AQUI'
 ```
 
 ## Dependencias
