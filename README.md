@@ -12,6 +12,37 @@ Envio automatizado de fichas para PPPoker.
 ppfichas
 ```
 
+## Configuracao
+
+**IMPORTANTE:** Edite a senha sudo no arquivo `realtime_transfer.py`:
+
+```python
+SUDO_PASS = '0000'  # <- Troque pela sua senha
+```
+
+## Dependencias
+
+O instalador instala automaticamente, mas se precisar manual:
+
+```bash
+# Homebrew (se nao tiver)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# cliclick (automacao de cliques)
+brew install cliclick
+
+# requests (Python)
+pip3 install requests
+```
+
+## Antes de Usar
+
+1. PPPoker instalado e logado
+2. Senha sudo configurada no `realtime_transfer.py`
+3. Permissao de Acessibilidade:
+   - System Settings > Privacy & Security > Accessibility
+   - Adicionar **Terminal** na lista
+
 ## Exemplo
 
 ```
@@ -32,13 +63,6 @@ Quantidade de fichas: 100
 [+] SUCESSO! 100 fichas -> 8980655
 ```
 
-## Antes de Usar
-
-1. PPPoker instalado e logado
-2. Permissao de Acessibilidade:
-   - System Settings > Privacy & Security > Accessibility
-   - Adicionar **Terminal** na lista
-
 ## Envio em Lote
 
 ```bash
@@ -57,3 +81,4 @@ python3 ~/Ppfichas/realtime_transfer.py --batch transfers.txt
 | rdkey error8 | Execute novamente |
 | Clique nao funciona | Adicionar Terminal em Acessibilidade |
 | cliclick not found | `brew install cliclick` |
+| sudo: incorrect password | Editar SUDO_PASS em realtime_transfer.py |
